@@ -1,17 +1,16 @@
-<nav style="background: #333; padding: 1rem; display: flex; justify-content: center;">
-    <a [routerLink]="'/'"
-        style="color: white; margin: 0 1rem; text-decoration: none; font-weight: bold; cursor: pointer;">🏠 Home</a>
-    <a [routerLink]="'/lista'"
-        style="color: white; margin: 0 1rem; text-decoration: none; font-weight: bold; cursor: pointer;">📋 Lista</a>
-    <a [routerLink]="'/detalle/1'"
-        style="color: white; margin: 0 1rem; text-decoration: none; font-weight: bold; cursor: pointer;">🔍 Detalle</a>
+<nav>
+  <a routerLink="/">🏠 Home</a>
+  <a routerLink="/lista">📋 Lista</a>
+  <a routerLink="/detalle/1">🔍 Detalle</a>
 </nav>
+
 
 <main style="padding: 2rem; min-height: 80vh;">
     <h1 style="text-align: center;">Carga router</h1>
     <router-outlet></router-outlet>
 </main>
 
-<footer style="background: #333; color: white; text-align: center; padding: 1rem;">
+<footer
+    style="background: #333; color: white; text-align: center; padding: 1rem;">
     <p>© 2025 Mi Proyecto Angular</p>
 </footer>s

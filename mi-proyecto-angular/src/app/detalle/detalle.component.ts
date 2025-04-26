@@ -4,7 +4,8 @@ import { Component } from '@angular/core';
   selector: 'app-detalle',
   imports: [],
   templateUrl: './detalle.component.html',
-  styleUrl: './detalle.component.css'
+  styleUrl: './detalle.component.css',
+  standalone: true
 })
 export class DetalleComponent {
 
