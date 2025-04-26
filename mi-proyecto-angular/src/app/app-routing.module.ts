@@ -5,14 +5,12 @@ import { ListaComponent } from './lista/lista.component';
 import { DetalleComponent } from './detalle/detalle.component';
 
 const routes: Routes = [
-  {path: '', component: HomeComponent},
-  {path: 'lista', component: ListaComponent},
-  {path: 'detalle/:id', component: DetalleComponent},
+  { path: '', component: HomeComponent },       
+  { path: 'lista', component: ListaComponent },
+  { path: 'detalle/:id', component: DetalleComponent }
 ];
 
-
 @NgModule({
-  declarations: [],
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
