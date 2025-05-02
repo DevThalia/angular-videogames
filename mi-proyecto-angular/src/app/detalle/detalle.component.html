@@ -1,1 +1,15 @@
 <p>detalle works!</p>
+<h1 style="text-align: center;">Detalles del Juego</h1>
+
+<div *ngIf="game">
+  <h2>{{ game.name }}</h2>
+  <img [src]="game.background_image" [alt]="game.name" style="width: 100%; height: 300px; object-fit: cover;">
+  <p><strong>📅 Lanzamiento:</strong> {{ game.released }}</p>
+  <p><strong>⭐ Rating:</strong> {{ game.rating }} / {{ game.rating_top }}</p>
+  <p><strong>Descripción:</strong> {{ game.description }}</p>
+</div>
+
+<!-- Cargando -->
+<ng-template #loading>
+  <p>Cargando detalles...</p>
+</ng-template>

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Game } from '../models/game.model';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class RawgService {
 
   constructor(private http: HttpClient) { }
 
-  getGames(): Observable<any> {
-    return this.http.get<any>(this.apiUrl);
+  getGamesFromUrl(url: string): Observable<{ results: Game[] }> {
+    return this.http.get<{ results: Game[] }>(url); 
   }
 }

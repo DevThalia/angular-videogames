@@ -5,7 +5,7 @@ import { ListaComponent } from './lista/lista.component';
 import { DetalleComponent } from './detalle/detalle.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },  // Ruta por defecto
+  { path: '', component: HomeComponent },  
   { path: 'lista', component: ListaComponent },
   { path: 'detalle/:id', component: DetalleComponent },
 ];

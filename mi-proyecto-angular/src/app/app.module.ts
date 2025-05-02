@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';  // Importa RouterModule
-import { AppComponent } from './app.component';  // Componente principal
-import { AppRoutingModule } from './app-routing.module'; // Archivo de rutas
+import { RouterModule } from '@angular/router';
+import { provideHttpClient } from '@angular/common/http';
 
-// Importamos los componentes standalone
+import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+
 import { HomeComponent } from './home/home.component';
 import { ListaComponent } from './lista/lista.component';
 import { DetalleComponent } from './detalle/detalle.component';
@@ -12,12 +13,15 @@ import { DetalleComponent } from './detalle/detalle.component';
 @NgModule({
     imports: [
         BrowserModule,
-        AppRoutingModule,  // AppRoutingModule para las rutas
-        RouterModule,  // RouterModule para las directivas de navegación
-        HomeComponent,  // Importamos el componente standalone
-        ListaComponent,  // Importamos el componente standalone
-        DetalleComponent,  // Importamos el componente standalone
+        AppRoutingModule,
+        RouterModule,
+        HomeComponent,
+        ListaComponent,
+        DetalleComponent
     ],
-    bootstrap: [AppComponent]  // Componente principal de arranque
+    providers: [
+        provideHttpClient() 
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
