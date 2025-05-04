@@ -5,10 +5,16 @@
         <div class="ms-auto d-flex gap-3">
             <a class="nav-link text-white" style="transition: 0.3s;"
                 routerLink="/">Inicio</a>
-            <a class="nav-link text-white" style="transition: 0.3s;"
-                routerLink="/lista">Lista</a>
-            <a class="nav-link text-white" style="transition: 0.3s;"
-                href="#contacto">Contacto</a>
+
+            <!-- Mostrar los botones solo si el usuario está autenticado -->
+            <a *ngIf="isAuthenticated" class="nav-link text-white"
+                style="transition: 0.3s;" routerLink="/lista">Lista</a>
+            <a *ngIf="isAuthenticated" class="nav-link text-white"
+                style="transition: 0.3s;" routerLink="/detalle">Detalles</a>
+
+            <!-- Si el usuario está autenticado, mostramos el botón de logout -->
+            <button *ngIf="isAuthenticated" class="btn btn-danger"
+                (click)="logout()">Cerrar sesión</button>
         </div>
     </div>
 </nav>

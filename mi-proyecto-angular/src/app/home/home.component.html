@@ -2,7 +2,6 @@
     style="height: 100vh; position: relative;">
     <div class="carousel-inner h-100">
 
-        <!-- Imagen 1 -->
         <div class="carousel-item active h-100">
             <img src="/img4.jpg" loading="lazy"
                 class="d-block w-100 h-100"
@@ -10,7 +9,6 @@
                 alt="Imagen 1">
         </div>
 
-        <!-- Imagen 2 -->
         <div class="carousel-item h-100">
             <img src="/img3.jpg" loading="lazy"
                 class="d-block w-100 h-100"
@@ -18,7 +16,6 @@
                 alt="Imagen 2">
         </div>
 
-        <!-- Imagen 3 -->
         <div class="carousel-item h-100">
             <img src="/img1.jpg" loading="lazy"
                 class="d-block w-100 h-100"
@@ -28,8 +25,7 @@
 
     </div>
 
-    <!-- Botón centrado -->
-    <div
+    <div *ngIf="isAuthenticated" 
         style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 10; text-align: center;">
         <a class="btn btn-lg shadow"
             style="background: rgba(106, 13, 173, 0.85); color: #fff; padding: 1rem 2.5rem; border-radius: 50px; font-size: 1.6rem; backdrop-filter: blur(4px);"
@@ -37,4 +33,14 @@
             🎮 ¡Mostrar Juegos!
         </a>
     </div>
+
+    <div *ngIf="!isAuthenticated" 
+        style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 10; text-align: center;">
+        <a class="btn btn-lg shadow"
+            style="background: rgba(255, 0, 0, 0.85); color: #fff; padding: 1rem 2.5rem; border-radius: 50px; font-size: 1.6rem; backdrop-filter: blur(4px);"
+            (click)="redirectToLogin()">
+            ⚠️ Inicia sesión para ver los juegos
+        </a>
+    </div>
+
 </div>
