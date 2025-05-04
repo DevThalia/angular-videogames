@@ -1,19 +1,22 @@
-<h1 style="text-align: center; margin-bottom: 2rem;">🎮 Lista de Juegos</h1>
+<h1 style="text-align: center; margin: 6rem 0 2rem;">🎮 Lista de Juegos</h1>
 
-<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem;">
-  <div *ngFor="let game of games" 
-       style="width: 300px; background: #fff; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden; transition: transform 0.3s ease;">
-    
-    <img [src]="game.background_image" [alt]="game.name" style="width: 100%; height: 180px; object-fit: cover;">
+<div
+  style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem;">
+  <div *ngFor="let game of games"
+    style="width: 300px; background: #fff; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden; transition: transform 0.3s ease;">
+
+    <img [src]="game.background_image" [alt]="game.name"
+      style="width: 100%; height: 180px; object-fit: cover;">
 
     <div style="padding: 1rem;">
       <h2 style="font-size: 1.2rem; margin-bottom: 0.5rem;">{{ game.name }}</h2>
-      <p style="margin: 0.3rem 0;"><strong>📅 Lanzamiento:</strong> {{ game.released }}</p>
+      <p style="margin: 0.3rem 0;"><strong>📅 Lanzamiento:</strong> {{
+        game.released }}</p>
       <p style="margin: 0.3rem 0;">
         <strong>⭐ Rating:</strong> {{ game.rating }} / {{ game.rating_top }}
       </p>
       <!-- Botón Ver más -->
-      <button 
+      <button
         style="background-color: #6a0dad; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer;"
         [routerLink]="['/detalle', game.id]">Ver más</button>
     </div>
@@ -21,10 +24,20 @@
 </div>
 
 <!-- Paginador -->
-<div style="text-align: center; margin-bottom: 2rem;">
-  <button (click)="prevPage()" [disabled]="currentPage === 1" style="margin-right: 1rem;">⬅️ Anterior</button>
-  <span>Página {{ currentPage }}</span>
-  <button (click)="nextPage()" style="margin-left: 1rem;">Siguiente ➡️</button>
+<div class="paginador" style="text-align: center; margin-bottom: 3rem;  margin-top: 3rem;">
+  <button (click)="prevPage()" [disabled]="currentPage === 1"
+    class="btn btn-paginador"
+    style="margin-right: 1.5rem; cursor: pointer; transition: transform 0.3s;">
+    ⬅️ Anterior
+  </button>
+
+  <span style="font-size: 1.2rem; font-weight: bold; color: #6a0dad;">Página {{
+    currentPage }}</span>
+
+  <button (click)="nextPage()" class="btn btn-paginador"
+    style="margin-left: 1.5rem; cursor: pointer; transition: transform 0.3s;">
+    Siguiente ➡️
+  </button>
 </div>
 
 <ng-template #loading>
