@@ -1,15 +1,17 @@
-<h1 style="text-align: center; margin: 6rem 0 2rem;">🎮 Lista de Juegos</h1>
+<h1 style="text-align: center; margin: 6rem 0 2rem; font-size: 2.5rem; color: #6a0dad; font-weight: bold;">🎮 Lista de Juegos</h1>
 
 <!-- Filtros -->
-<div style="display: flex; justify-content: center; gap: 2rem; margin-bottom: 2rem;">
+<div style="display: flex; justify-content: center; gap: 2rem; margin-bottom: 3rem;">
   <div>
-    <label for="nameFilter">Buscar por nombre:</label>
-    <input id="nameFilter" [(ngModel)]="nameFilter" (input)="applyFilters()" style="padding: 0.5rem; border-radius: 5px;">
+    <label for="nameFilter" style="font-size: 1rem; color: #333;">Buscar por nombre:</label>
+    <input id="nameFilter" [(ngModel)]="nameFilter" (input)="applyFilters()"
+      style="padding: 0.8rem; border-radius: 8px; border: 1px solid #ddd; width: 200px; font-size: 1rem;">
   </div>
 
   <div>
-    <label for="ratingFilter">Filtrar por rating:</label>
-    <select id="ratingFilter" [(ngModel)]="ratingFilter" (change)="applyFilters()" style="padding: 0.5rem; border-radius: 5px;">
+    <label for="ratingFilter" style="font-size: 1rem; color: #333;">Filtrar por rating:</label>
+    <select id="ratingFilter" [(ngModel)]="ratingFilter" (change)="applyFilters()"
+      style="padding: 0.8rem; border-radius: 8px; border: 1px solid #ddd; width: 200px; font-size: 1rem;">
       <option value="">Todos</option>
       <option value="1">1 estrella</option>
       <option value="2">2 estrellas</option>
@@ -21,37 +23,38 @@
 </div>
 
 <!-- Lista de juegos -->
-<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem;">
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;">
   <div *ngFor="let game of filteredGames"
-    style="width: 300px; background: #fff; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden; transition: transform 0.3s ease;">
-
+    style="width: 300px; background: #fff; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden; transition: transform 0.3s ease; cursor: pointer;">
+    
     <img [src]="game.background_image" [alt]="game.name"
-      style="width: 100%; height: 180px; object-fit: cover;">
-
-    <div style="padding: 1rem;">
-      <h2 style="font-size: 1.2rem; margin-bottom: 0.5rem;">{{ game.name }}</h2>
-      <p style="margin: 0.3rem 0;"><strong>📅 Lanzamiento:</strong> {{ game.released }}</p>
-      <p style="margin: 0.3rem 0;">
+      style="width: 100%; height: 180px; object-fit: cover; border-radius: 15px 15px 0 0;">
+    
+    <div style="padding: 1.2rem;">
+      <h2 style="font-size: 1.3rem; margin-bottom: 0.5rem; font-weight: bold; color: #333;">{{ game.name }}</h2>
+      <p style="margin: 0.3rem 0; font-size: 1rem; color: #555;">
+        <strong>📅 Lanzamiento:</strong> {{ game.released }}
+      </p>
+      <p style="margin: 0.3rem 0; font-size: 1rem; color: #555;">
         <strong>⭐ Rating:</strong> {{ game.rating }} / {{ game.rating_top }}
       </p>
-      <button style="background-color: #6a0dad; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer;"
-        [routerLink]="['/detalle', game.id]">Ver más</button>
+      <button style="background-color: #6a0dad; color: white; border: none; padding: 0.7rem 1.5rem; border-radius: 25px; cursor: pointer; font-weight: bold; font-size: 1rem; transition: background-color 0.3s;">
+        <a [routerLink]="['/detalle', game.id]" style="text-decoration: none; color: white;">Ver más</a>
+      </button>
     </div>
   </div>
 </div>
 
 <!-- Paginador -->
-<div class="paginador" style="text-align: center; margin-bottom: 3rem;  margin-top: 3rem;">
+<div class="paginador" style="text-align: center; margin-top: 3rem; margin-bottom: 3rem;">
   <button (click)="prevPage()" [disabled]="currentPage === 1"
-    class="btn btn-paginador"
-    style="margin-right: 1.5rem; cursor: pointer; transition: transform 0.3s;">
+    style="background-color: #6a0dad; color: white; padding: 0.6rem 1.2rem; border-radius: 20px; cursor: pointer; font-size: 1rem; margin-right: 2rem; transition: background-color 0.3s;">
     ⬅️ Anterior
   </button>
 
   <span style="font-size: 1.2rem; font-weight: bold; color: #6a0dad;">Página {{ currentPage }}</span>
 
-  <button (click)="nextPage()" class="btn btn-paginador"
-    style="margin-left: 1.5rem; cursor: pointer; transition: transform 0.3s;">
+  <button (click)="nextPage()" style="background-color: #6a0dad; color: white; padding: 0.6rem 1.2rem; border-radius: 20px; cursor: pointer; font-size: 1rem; margin-left: 2rem; transition: background-color 0.3s;">
     Siguiente ➡️
   </button>
 </div>

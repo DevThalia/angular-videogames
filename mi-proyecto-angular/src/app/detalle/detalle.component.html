@@ -1,4 +1,4 @@
-<h1 class="title" style="margin: 6rem 0 2rem;">🎮 Detalles del Juego</h1>
+<h1 class="title">🎮 Detalles del Juego</h1>
 
 <div *ngIf="game; else loading">
   <!-- Card del Juego -->
@@ -10,15 +10,13 @@
     <div class="game-content">
       <h2>{{ game.name }}</h2>
       <p><strong>📅 Lanzamiento:</strong> {{ game.released }}</p>
-      <p><strong>⭐ Rating:</strong> {{ game.rating }} / {{ game.rating_top
-        }}</p>
+      <p><strong>⭐ Rating:</strong> {{ game.rating }} / {{ game.rating_top }}</p>
       <p><strong>📝 Descripción:</strong></p>
       <p class="description" [innerHTML]="game.description"></p>
 
       <button class="back-btn" (click)="goBack()">⬅️ Volver</button>
       <!-- Botón para añadir comentario -->
-      <button class="add-comment-btn" (click)="openModal()">Añadir
-        Comentario</button>
+      <button class="add-comment-btn" (click)="openModal()">Añadir Comentario</button>
 
       <!-- Mostrar comentarios -->
       <div *ngIf="gameComments.length > 0; else noComments">
@@ -45,8 +43,7 @@
 <div *ngIf="isModalOpen" class="modal">
   <div class="modal-content">
     <h2>Escribe tu comentario</h2>
-    <textarea [(ngModel)]="newComment"
-      placeholder="Escribe tu comentario aquí..." rows="4" cols="50"></textarea>
+    <textarea [(ngModel)]="newComment" placeholder="Escribe tu comentario aquí..." rows="4"></textarea>
     <div class="modal-actions">
       <button (click)="saveComment()">Guardar Comentario</button>
       <button (click)="closeModal()">Cancelar</button>
