@@ -5,33 +5,52 @@ import { Injectable } from '@angular/core';
 })
 export class AuthService {
 
-  private validUser = { username: 'usuario', password: 'contraseña' };
-  private users: { username: string, password: string }[] = [];
-
-  constructor() { }
-
-  login(username: string, password: string): boolean {
-    if (username === this.validUser.username && password === this.validUser.password) {
-      localStorage.setItem('auth_token', 'token_simulado');
-      return true;
-    }
-    return false;
-  }
-
-  logout(): void {
-    localStorage.removeItem('auth_token');
-  }
-
-  isAuthenticated(): boolean {
-    return !!localStorage.getItem('auth_token');
-  }
-
+  // Método de registro
   registro(username: string, password: string): boolean {
-    const userExists = this.users.some(user => user.username === username);
-    if (userExists) {
-      return false;
+    const users = this.getUsers();
+    if (users.some(user => user.username === username)) {
+      return false; // El usuario ya existe
     }
-    this.users.push({ username, password });
+
+    // Guarda el nuevo usuario en localStorage
+    users.push({ username, password });
+    localStorage.setItem('users', JSON.stringify(users));
     return true;
+  }
+
+  // Método de login
+  login(username: string, password: string): boolean {
+    const users = this.getUsers(); // Recupera los usuarios guardados en localStorage
+
+    // Verifica si las credenciales coinciden
+    const user = users.find(u => u.username === username && u.password === password);
+    if (user) {
+      // Guarda el usuario como 'currentUser' en localStorage
+      localStorage.setItem('currentUser', JSON.stringify(user));
+      return true;  // Las credenciales son correctas
+    }
+    return false; // Las credenciales son incorrectas
+  }
+
+
+
+  // Método de logout
+  logout(): void {
+    localStorage.removeItem('loggedIn'); // Elimina el estado de autenticación
+  }
+
+  // Verifica si el usuario está autenticado
+  isAuthenticated(): boolean {
+    return localStorage.getItem('currentUser') !== null;  // Verifica si hay un usuario logueado
+  }
+
+  // Recupera los usuarios de localStorage
+  private getUsers(): { username: string, password: string }[] {
+    const users = localStorage.getItem('users');
+    return users ? JSON.parse(users) : [];
+  }
+
+  debugUsers() {
+    console.log(JSON.parse(localStorage.getItem('users')!));
   }
 }

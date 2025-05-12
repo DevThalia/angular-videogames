@@ -20,9 +20,16 @@ export class LoginComponent {
 
   onSubmit(): void {
     if (this.authService.login(this.username, this.password)) {
-      this.router.navigate(['/home']);
+      this.router.navigate(['home']);
     } else {
       this.errorMessage = 'Credenciales incorrectas. Intenta nuevamente.';
     }
   }
+
+  ngOnInit() {
+    if (this.authService.isAuthenticated()) {
+      this.router.navigate(['/home']); 
+    }
+  }
+
 }
