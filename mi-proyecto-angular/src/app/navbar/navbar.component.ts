@@ -17,10 +17,18 @@ export class NavbarComponent {
     this.isAuthenticated = this.authService.isAuthenticated();
   }
 
+  goToLista(): void {
+    this.router.navigate(['/lista']);
+  }
+
   logout(): void {
     this.authService.logout();
     this.isAuthenticated = false;
     this.router.navigate(['/login']);
   }
 
+
+  ngOnInit(): void {
+    this.isAuthenticated = this.authService.isAuthenticated();
+  }
 }

@@ -34,10 +34,10 @@ export class AuthService {
 
 
 
-  // Método de logout
   logout(): void {
-    localStorage.removeItem('loggedIn'); // Elimina el estado de autenticación
+    localStorage.removeItem('currentUser');  // Elimina el usuario del localStorage
   }
+
 
   // Verifica si el usuario está autenticado
   isAuthenticated(): boolean {
