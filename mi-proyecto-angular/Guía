@@ -1,0 +1,54 @@
+# Guía para Iniciar el Proyecto Angular
+
+Este documento describe los pasos necesarios para configurar e iniciar el proyecto Angular correctamente.
+
+## Requisitos Previos
+
+1. **Node.js y npm**:
+    - Asegúrate de tener instalado Node.js (versión 14 o superior) y npm (Node Package Manager).
+    - Puedes verificar la instalación ejecutando:
+      ```
+      node -v
+      npm -v
+      ```
+
+2. **Angular CLI**:
+    - Instala Angular CLI globalmente si no lo tienes:
+      ```
+      npm install -g @angular/cli
+      ```
+    - Verifica la instalación:
+      ```
+      ng version
+      ```
+
+3. **Editor de Código**:
+    - Se recomienda usar Visual Studio Code para trabajar con el proyecto.
+
+## Pasos para Iniciar el Proyecto
+
+1. **Clonar el Repositorio**:
+    - Si el proyecto está en un repositorio remoto, clónalo:
+      ```
+      git clone <URL-del-repositorio>
+      ```
+    - Navega al directorio del proyecto:
+      ```
+      cd mi-proyecto-angular
+      ```
+
+2. **Instalar Dependencias**:
+    - Ejecuta el siguiente comando para instalar las dependencias del proyecto:
+      ```
+      npm install
+      ```
+
+3. **Configurar Variables de Entorno**:
+    - Si el proyecto requiere variables de entorno, crea un archivo `src/environments/environment.ts` y configura las variables necesarias.
+
+4. **Iniciar el Servidor de Desarrollo**:
+    - Ejecuta el siguiente comando para iniciar el servidor de desarrollo:
+      ```
+      ng serve
+      ```
+    - Abre tu navegador y accede a `http://localhost:4200`.
