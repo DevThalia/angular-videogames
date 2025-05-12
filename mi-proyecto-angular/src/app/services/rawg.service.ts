@@ -15,4 +15,10 @@ export class RawgService {
   getGamesFromUrl(url: string): Observable<{ results: Game[] }> {
     return this.http.get<{ results: Game[] }>(url); 
   }
+
+  getGameDetails(gameId: number): Observable<any> {
+    const url = `https://api.rawg.io/api/games/${gameId}?key=239d178559b64d9588abcb5561a43ee2`;
+    return this.http.get<any>(url);
+  }
+
 }
